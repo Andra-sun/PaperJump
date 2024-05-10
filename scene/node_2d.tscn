@@ -1,3 +1,32 @@
-[gd_scene format=3 uid="uid://b2tcfbukd1pe4"]
+[gd_scene load_steps=5 format=3 uid="uid://b2tcfbukd1pe4"]
+
+[ext_resource type="Texture2D" uid="uid://7qk325rmdiw" path="res://assets/sprites/carlito01.png" id="1_q64si"]
+[ext_resource type="Script" path="res://script/CharacterBody2D.gd" id="1_uj80y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vinu"]
+size = Vector2(29, 51.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gh4n"]
+size = Vector2(1136, 85)
 
 [node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(224, 326)
+scale = Vector2(4, 4)
+script = ExtResource("1_uj80y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-1.5, -2.25)
+shape = SubResource("RectangleShape2D_0vinu")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("1_q64si")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(576, 612.5)
+shape = SubResource("RectangleShape2D_3gh4n")
+debug_color = Color(0.678431, 0.34902, 0.921569, 0.419608)
